@@ -1,0 +1,32 @@
+def merge(nums1, m, nums2, n):
+    # Вказівники на останні елементи в nums1 і nums2
+    i, j, k = m - 1, n - 1, m + n - 1
+
+    # Об’єднуємо масиви, починаючи з кінця
+    while i >= 0 and j >= 0:
+        if nums1[i] > nums2[j]:
+            nums1[k] = nums1[i]
+            i -= 1
+        else:
+            nums1[k] = nums2[j]
+            j -= 1
+        k -= 1
+
+    # Якщо залишилися елементи в nums2, копіюємо їх
+    while j >= 0:
+        nums1[k] = nums2[j]
+        j -= 1
+        k -= 1
+
+# Приклади використання:
+nums1_1 = [1, 2, 3, 0, 0, 0]
+merge(nums1_1, 3, [2, 5, 6], 3)
+print(nums1_1)  # Output: [1, 2, 2, 3, 5, 6]
+
+nums1_2 = [1]
+merge(nums1_2, 1, [], 0)
+print(nums1_2)  # Output: [1]
+
+nums1_3 = [0]
+merge(nums1_3, 0, [1], 1)
+print(nums1_3)  # Output: [1]
