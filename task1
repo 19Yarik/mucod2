@@ -1,0 +1,6 @@
+def sortArrayByParity(nums):
+    return [x for x in nums if x % 2 == 0] + [x for x in nums if x % 2 != 0]
+
+# Приклади використання:
+print(sortArrayByParity([3, 1, 2, 4]))  # Output: [2, 4, 3, 1]
+print(sortArrayByParity([0]))           # Output: [0]
