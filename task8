@@ -1,0 +1,28 @@
+def validMountainArray(arr):
+    n = len(arr)
+    
+    # Перевіряємо, чи довжина масиву не менше 3
+    if n < 3:
+        return False
+
+    i = 0
+
+    # Проходимо вгору
+    while i < n - 1 and arr[i] < arr[i + 1]:
+        i += 1
+
+    # Перевіряємо, чи ми досягли початкової точки спаду
+    if i == 0 or i == n - 1:
+        return False
+
+    # Проходимо вниз
+    while i < n - 1 and arr[i] > arr[i + 1]:
+        i += 1
+
+    # Якщо ми досягли кінця масиву, це дійсний гірський масив
+    return i == n - 1
+
+# Приклади використання:
+print(validMountainArray([2, 1]))  # Output: False
+print(validMountainArray([3, 5, 5]))  # Output: False
+print(validMountainArray([0, 3, 2, 1]))  # Output: True
