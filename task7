@@ -1,0 +1,14 @@
+def checkIfExist(arr):
+    seen = set()
+
+    for num in arr:
+        # Перевіряємо, чи вже є в наборі половина поточного числа або його подвоєння
+        if num * 2 in seen or (num % 2 == 0 and num // 2 in seen):
+            return True
+        seen.add(num)
+
+    return False
+
+# Приклади використання:
+print(checkIfExist([10, 2, 5, 3]))  # Output: True
+print(checkIfExist([3, 1, 7, 11]))   # Output: False
