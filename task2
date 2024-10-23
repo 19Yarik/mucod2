@@ -1,0 +1,12 @@
+def countNumbersWithEvenDigits(nums):
+    count = 0
+    
+    for num in nums:
+        if len(str(num)) % 2 == 0:
+            count += 1
+    
+    return count
+
+# Приклади використання:
+print(countNumbersWithEvenDigits([12, 345, 2, 6, 7896]))  # Output: 2
+print(countNumbersWithEvenDigits([555, 901, 482, 1771]))   # Output: 1
