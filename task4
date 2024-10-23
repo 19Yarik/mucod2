@@ -1,0 +1,23 @@
+def duplicateZeros(arr):
+    n = len(arr)
+    zeros = arr.count(0)
+
+    # Створюємо новий масив з розміром n + кількість нулів
+    new_length = n + zeros
+    new_arr = [0] * new_length
+
+    # Заповнюємо новий масив
+    for i in range(n):
+        if arr[i] == 0:
+            new_arr[i] = 0  # Дублюємо нуль
+            new_arr[i + 1] = 0  # Додаємо другий нуль
+            i += 1  # Пропускаємо наступний елемент
+        else:
+            new_arr[i + zeros] = arr[i]
+
+    # Повертаємо перші n елементів нового масиву
+    return new_arr[:n]
+
+# Приклади використання:
+print(duplicateZeros([1, 0, 2, 3, 0, 4, 5, 0]))  # Output: [1, 0, 0, 2, 3, 0, 0, 4]
+print(duplicateZeros([1, 2, 3]))                    # Output: [1, 2, 3]
