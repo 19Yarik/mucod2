@@ -1,0 +1,18 @@
+def replaceElements(arr):
+    n = len(arr)
+    if n == 0:
+        return arr  # Повертаємо порожній масив, якщо він є
+
+    max_from_right = -1  # Ініціалізуємо змінну для найбільшого з правого боку
+
+    # Проходимо масив з кінця до початку
+    for i in range(n - 1, -1, -1):
+        current = arr[i]  # Зберігаємо поточний елемент
+        arr[i] = max_from_right  # Замінюємо поточний елемент на найбільший праворуч
+        max_from_right = max(max_from_right, current)  # Оновлюємо найбільший елемент праворуч
+
+    return arr
+
+# Приклади використання:
+print(replaceElements([17, 18, 5, 4, 6, 1]))  # Output: [18, 6, 6, 6, 1, -1]
+print(replaceElements([400]))  # Output: [-1]
